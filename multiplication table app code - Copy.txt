@@ -1,0 +1,40 @@
+package com.example.vyombagnaik;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    TextView textview;
+    Button button;
+    EditText editText;
+    String result;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        textview = findViewById(R.id.textView2);
+        button = findViewById(R.id.button);
+        editText = findViewById(R.id.editText);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getBaseContext(), "*Loading*", Toast.LENGTH_SHORT).show();
+                String name = editText.getText().toString();
+                int n = Integer.parseInt(name);
+                result = "";
+                for (int i = 1; i <= 10; i++) {
+                    result += n + " X " + i + " = " + n * i + "\n";
+                    textview.setText(result);
+
+                }
+            }
+        });
+    }
+}
